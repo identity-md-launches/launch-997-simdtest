@@ -1,0 +1,30 @@
+{
+  "kind": "univ4_hook",
+  "hook": {
+    "contract": "SIMDTESTHook",
+    "constructorArgs": [
+      "$poolManager",
+      "$token"
+    ],
+    "permissions": [
+      "beforeInitialize",
+      "beforeSwap",
+      "afterSwap",
+      "beforeSwapReturnDelta",
+      "afterSwapReturnDelta"
+    ]
+  },
+  "token": {
+    "contract": "SIMDTEST",
+    "name": "SIMDTEST",
+    "symbol": "SIMDTEST",
+    "decimals": 18
+  },
+  "pool": {
+    "pairedCurrency": "0xd34a99bc0f67ae1bbd63c660e6d0b0dd03e263b7",
+    "fee": 12500,
+    "tickSpacing": 60,
+    "initialPrice": "79228162514264337593543950336"
+  },
+  "notes": "Ethereum mainnet (chainId 1). Resolve $poolManager to 0x000000000004444c5dc75cB358380D2e3dE08A90 and $token to the newly deployed SIMDTEST. Direct CREATE2 hook, permission mask 8396 (0x20cc); no proxy, owner, admin, setter or upgrade. IMD and treasury 0x3dd5f73dd1a4e62630fad3909673f130ad429985 are constants. Gross-IMD fee falls from 4000 bps at pool initialization to 300 bps after 3600 seconds, rounded down. The static 12500 LP fee is never changed or overridden. Fees remain as IMD-denominated claims owned by the hook; permissionless sweep redeems them only to treasury. No token transfers during swap fee accrual. Views: feeNow, openedAt, pending, collected. Full 1e27 supply mints to deployer; factory allocates 90% to liquidity and 10% to its Merkle distributor. No remainder allocation, burn address or swarm transfer in either contract. initialPrice is provenance only; the factory sets the opening price from launch economics. Deploy token, mine/deploy hook, initialize and seed atomically; do not start the fee clock in a separate transaction. Read README.md and docs/SECURITY_REVIEW.md for rounding, partial fills, deployment and operational responsibilities."
+}

@@ -1,0 +1,3 @@
+# Provenance
+
+The fee hook and read-only specified-side quote are adapted from the MIT-licensed launch #909 source explicitly referenced in the assignment: https://github.com/identity-md-launches/launch-909-launch-imddrone-token-name/tree/ba8b0fe854f15e3513090e653fb5c42d8ade76bd. Original files: `src/DroneHook.sol`, `src/SpecifiedAmount.sol`, and `src/HookFlags.sol`. The Solidity files carry SPDX MIT identifiers. This project fixes IMD and the requested treasury as constants, uses the SIMDTEST identity, and supplies its own launch configuration and test suite. No claim of an independent audit is inherited from that repository.
